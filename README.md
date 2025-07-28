@@ -1,7 +1,5 @@
 # FlashForge-5M-PRO-USB-Enumeration-Script
-# This is a set of scripts to resolve the issue of random USB assignments on boot for the flash forge 5M pro.
-
-# Solution: FlashForge AD5M Pro Multi-MCU USB Enumeration Issues with Klipper Mod
+# This is a set of scripts to resolve the issue of random USB assignments on boot for the flash forge 5M pro.  THIS HAS NOT BEEN TESTED WITH FORGEX, IT IS KNOWN WORKING ON ORIGIANL KLIPPER MOD
 
 ## Problem Description
 
