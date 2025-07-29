@@ -1,6 +1,5 @@
 # FlashForge-5M-PRO-USB-Enumeration-Script
-# This is a set of scripts to resolve the issue of random USB assignments on boot for the flash forge 5M pro.  THIS HAS NOT BEEN TESTED WITH FORGEX, IT IS KNOWN WORKING ON ORIGIANL KLIPPER MOD
-
+# This is a script designed to create static symlinks for USB hubs on the FlashForge 5M Pro.  It was designed to use CoPrint's KCM 8 Color set.
 ## Problem Description
 
 When using the FlashForge AD5M Pro Klipper mod with multiple external MCUs connected via USB hub, the USB enumeration order changes randomly on boot and after `FIRMWARE_RESTART` commands. This causes MCU communication errors because the device paths (like `/dev/ttyACM0`, `/dev/ttyACM1`, etc.) get scrambled, and Klipper tries to connect to the wrong MCU boards.
