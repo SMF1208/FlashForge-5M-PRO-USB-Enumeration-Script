@@ -17,11 +17,8 @@ SSH into printer (root/klipper) and create the script:
 `nano /usr/libexec/usb-serial-helper.sh`
 
 Paste this content:
-
-``bash#!/bin/sh
-# USB Serial Helper for persistent device names
-# Based on USB bus address to create stable symlinks
-
+```
+#!/bin/sh
 if [ "$ACTION" = "add" ]; then
     # Get the USB bus address from sysfs
     USB_PATH=$(readlink -f /sys/class/tty/$MDEV/device | sed 's/.*\///')
@@ -37,8 +34,8 @@ if [ "$ACTION" = "add" ]; then
             ln -sf /dev/$MDEV /dev/ttyACM_port3
             ;;
     esac
-fi``
-
+fi
+```
 Make it executable:
 
 `chmod +x /usr/libexec/usb-serial-helper.sh`
@@ -61,9 +58,10 @@ Check if symlinks were created:
 
 Step 4: Update Klipper Config
 In your printer.cfg, use the persistent names instead of ttyACM numbers:
-```ini[mcu]
-serial: /dev/ttyACM_port1  # Instead of /dev/ttyACM0```
-
+```
+ini[mcu]
+serial: /dev/ttyACM_port1  # Instead of /dev/ttyACM0
+```
 Customization
 Important: The USB bus addresses (3-1.3.2, etc.) in the script are specific to the AD5M Pro's USB hub layout that came from CoPrint. To find your specific addresses:
 `bashdmesg | grep ttyACM`
