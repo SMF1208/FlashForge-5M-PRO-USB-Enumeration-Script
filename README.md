@@ -46,13 +46,16 @@ Edit mdev config:
 
 Add this line after the ttyUSB line:
 
-ttyACM[0-9]*    root:root 660 */usr/libexec/usb-serial-helper.sh
+`ttyACM[0-9]*    root:root 660 */usr/libexec/usb-serial-helper.sh`
 
 Step 3: Restart mdev and Test
+
 `killall mdev`
+
 `/sbin/mdev -s`
 
 Check if symlinks were created:
+
 `bashls -la /dev/ttyACM_*`
 
 Step 4: Update Klipper Config
